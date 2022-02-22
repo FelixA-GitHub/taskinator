@@ -8,6 +8,14 @@ var taskFormHandler = function(event) {
     event.preventDefault(); //prevents browser's default behavior
     var taskNameInput = document.querySelector("input[name='task-name']").value;//[] used because we are selecting the input HTML element that has a name attribute set to task-name
     var taskTypeInput = document.querySelector("select[name='task-type']").value;
+
+    // check if input values are empty input strings, if they are the function stops and alerts
+    if (!taskNameInput || !taskTypeInput) {
+        alert("You need to fill out the task form!");
+        return false;
+    }
+    //this will refresh the form after correct inputs are added
+    formEl.reset();
     
     // package up data as an object
     var taskDataObj = {
